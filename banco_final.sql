@@ -1,8 +1,10 @@
+
 /*
 SQLyog Ultimate v11.11 (32 bit)
 MySQL - 5.6.15-log : Database - loja_virtual
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -157,7 +159,7 @@ CREATE TABLE `parcelas` (
   `valorJuros` decimal(10,2) DEFAULT NULL,
   `valorRecebido` decimal(10,2) DEFAULT NULL,
   `vencimento` date NOT NULL,
-  `tipoPagamento` set('Boleto','Cartão') NOT NULL,
+  `tipoPagamento` set('Boleto','CartÃ£o') NOT NULL,
   `situcacao` set('Em aberto','Pago') NOT NULL,
   PRIMARY KEY (`idParcela`),
   KEY `Parcelas_FKIndex1` (`Pedido_idPedido`),
@@ -171,7 +173,7 @@ DROP TABLE IF EXISTS `pedido`;
 CREATE TABLE `pedido` (
   `idPedido` int(11) NOT NULL AUTO_INCREMENT,
   `cliente_idCliente` int(11) NOT NULL,
-  `situacao` set('Em análise','Aprovado','Separado','Entregue','Finalizado') NOT NULL,
+  `situacao` set('Em anÃ¡lise','Aprovado','Separado','Entregue','Finalizado') NOT NULL,
   `dataPedido` datetime NOT NULL,
   `valor` decimal(10,2) NOT NULL,
   `formaPagamento` set('A vista','Parcelado') NOT NULL,
@@ -243,7 +245,7 @@ DROP TABLE IF EXISTS `tipo_mov`;
 CREATE TABLE `tipo_mov` (
   `idTipo_Mov` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `descricao` longtext NOT NULL,
-  `tipoMov` set('Entrada','Sa�da') NOT NULL,
+  `tipoMov` set('Entrada','Saída') NOT NULL,
   PRIMARY KEY (`idTipo_Mov`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
